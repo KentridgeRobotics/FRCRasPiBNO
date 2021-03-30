@@ -29,9 +29,21 @@ def output_calibration_data(output_file, bno):
     logging.info("\tMagnetometer Radius: {}".format(bno.radius_magnetometer))
 
     output_data = {
-        'accelerometer_offsets': bno.offsets_accelerometer,
-        'gryoscope_offsets': bno.offsets_gyroscope,
-        'magnetometer_offsets': bno.offsets_magnetometer,
+        'accelerometer_offsets': {
+            'x': bno.offsets_accelerometer[0],
+            'y': bno.offsets_accelerometer[1],
+            'z': bno.offsets_accelerometer[2],
+        }
+        'gryoscope_offsets': {
+            'x': bno.offsets_gyroscope[0],
+            'y': bno.offsets_gyroscope[1],
+            'z': bno.offsets_gyroscope[2],
+        }
+        'magnetometer_offsets': {
+            'x': bno.offsets_magnetometer[0],
+            'y': bno.offsets_magnetometer[1],
+            'z': bno.offsets_magnetometer[2],
+        }
         'accelerometer_radius': bno.radius_accelerometer,
         'magnetometer_radius': bno.radius_magnetometer
     }

@@ -22,9 +22,21 @@ def set_calibration_data(calibration_file, bno):
 
     bno.mode = adafruit_bno055.CONFIG_MODE
 
-    bno.offsets_accelerometer = calibration_data['accelerometer_offsets']
-    bno.offsets_gyroscope = calibration_data['gyroscope_offsets']
-    bno.offsets_magnetometer = calibration_data['magnetometer_offsets']
+    bno.offsets_accelerometer = (
+            calibration_data['accelerometer_offsets']['x'],
+            calibration_data['accelerometer_offsets']['y'],
+            calibration_data['accelerometer_offsets']['z']
+        )
+    bno.offsets_gyroscope = (
+            calibration_data['gyroscope_offsets']['x'],
+            calibration_data['gyroscope_offsets']['y'],
+            calibration_data['gyroscope_offsets']['z']
+        )
+    bno.offsets_magnetometer = (
+            calibration_data['magnetometer_offsets']['x'],
+            calibration_data['magnetometer_offsets']['y'],
+            calibration_data['magnetometer_offsets']['z']
+        )
     bno.radius_accelerometer = calibration_data['accelerometer_radius']
     bno.radius_magnetometer = calibration_data['magnetometer_radius']
 
