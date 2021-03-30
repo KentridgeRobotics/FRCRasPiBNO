@@ -36,7 +36,7 @@ def output_calibration_data(output_file, bno):
         'magnetometer_radius': bno.radius_magnetometer
     }
 
-    with open(output_file, "r") as f:
+    with open(output_file, "w") as f:
         yaml.dump(output_data, f)
 
 @click.command()
