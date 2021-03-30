@@ -10,6 +10,8 @@ import click
 
 import yaml
 
+from time import sleep
+
 from networktables import NetworkTables
 
 logging.basicConfig(level=logging.INFO)
