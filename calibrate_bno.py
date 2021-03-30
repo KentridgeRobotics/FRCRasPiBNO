@@ -23,7 +23,7 @@ def print_status(bno):
 def output_calibration_data(output_file, bno):
     logging.info("Calibration offsets:")
     logging.info("\tAccelerometer: {}".format(bno.offsets_accelerometer))
-    logging.info("\tGyroscope: {}".format(bno.offsets_gryoscope))
+    logging.info("\tGyroscope: {}".format(bno.offsets_gyroscope))
     logging.info("\tMagnetometer: {}".format(bno.offsets_magnetometer))
     logging.info("\tAccelerometer Radius: {}".format(bno.radius_accelerometer))
     logging.info("\tMagnetometer Radius: {}".format(bno.radius_magnetometer))
