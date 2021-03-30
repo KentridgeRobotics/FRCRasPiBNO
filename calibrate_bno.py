@@ -34,7 +34,7 @@ def output_calibration_data(output_file, bno):
             'y': bno.offsets_accelerometer[1],
             'z': bno.offsets_accelerometer[2],
         },
-        'gryoscope_offsets': {
+        'gyroscope_offsets': {
             'x': bno.offsets_gyroscope[0],
             'y': bno.offsets_gyroscope[1],
             'z': bno.offsets_gyroscope[2],
