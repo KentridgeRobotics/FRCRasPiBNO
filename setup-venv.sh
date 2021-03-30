@@ -7,7 +7,7 @@ if [[ ! -d "$VIRTUAL_ENV_DIR" ]]; then
     echo "Could not find virtual environment, setting up..."
     if ! command -v virtualenv > /dev/null; then
        echo "ERROR: Could not find virtualenv, please ensure it is installed."
-       echo "\tsudo apt-get install python3-virtualenv"
+       printf "\tsudo apt-get install python3-virtualenv\n"
        exit 1
     fi
 
