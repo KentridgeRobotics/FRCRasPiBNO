@@ -6,9 +6,29 @@ import adafruit_bno055
 import board
 import busio
 
+import click
+
+import yaml
+
 from networktables import NetworkTables
 
 logging.basicConfig(level=logging.DEBUG)
+
+def set_calibration_data(calibration_file, bno):
+    calibration_data = {}
+     
+    with open(calibration_file, "r") as f:
+        calibration_data = yaml.safe_load(f)
+
+    bno.mode = adafruit_bno055.CONFIG_MODE
+
+    bno.offsets_accelerometer = calibration_data['accelerometer_offsets']
+    bno.offsets_gyroscope = calibration_data['gyroscope_offsets']
+    bno.offsets_magnetometer = calibration_data['magnetometer_offsets']
+    bno.radius_accelerometer = calibration_data['accelerometer_radius']
+    bno.radius_magnetometer = calibration_data['magnetometer_radius']
+
+    bno.mode = adafruit_bno055.NDOF_MODE
 
 def write_bno_to_network_table(table, bno):
     # Gather data from BNO to avoid drift while writing to tables
@@ -65,13 +85,22 @@ def write_bno_to_network_table(table, bno):
         table.putNumber("gravity_y", gravity[1])
         table.putNumber("gravity_z", gravity[2])
 
-def main():
+@click.command()
+@click.option("--calibration", help="Path to the calibration yaml file from calibrate_bno.py.")
+@click.option("--net-tables-server", default="roborio-3786-frc.local",
+              help="The server IP for the Network Tables server.")
+def main(calibration, net_tables_server):
+    """Output data from the BNO to Network Tables
+    """
     logging.info("Starting network tables...")
-    NetworkTables.initialize()
+    NetworkTables.initialize(server=net_tables_server)
     bno_table = NetworkTables.getTable("BNO055")
     logging.info("Connecting to BNO...")
     i2c = busio.I2C(board.SCL, board.SDA)
     sensor = adafruit_bno055.BNO055_I2C(i2c)
+
+    if calibration:
+        set_calibration_data(calibration, sensor)
 
     logging.info("Initialization complete.")
 

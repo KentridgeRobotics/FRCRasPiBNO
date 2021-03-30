@@ -1,2 +1,4 @@
+click
 robotpy
 adafruit-circuitpython-bno055
+pyyaml
