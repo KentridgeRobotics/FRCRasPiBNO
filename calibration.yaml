@@ -1,0 +1,15 @@
+accelerometer_offsets:
+  x: 5
+  y: -27
+  z: 4
+gyroscope_offsets:
+  x: -2
+  y: 2
+  z: -1
+magnetometer_offsets:
+  x: 195
+  y: 71
+  z: 43
+
+accelerometer_radius: 1000
+magnetometer_radius: 937
