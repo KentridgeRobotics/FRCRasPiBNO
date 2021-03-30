@@ -16,3 +16,5 @@ echo "Installing executable file to $INSTALL_DIR/opt/FRC3786/bin/bno"
 cp bno_tables.py "$INSTALL_DIR/opt/FRC3786/bin/bno"
 cp -r .bno-tables-env/ "$INSTALL_DIR/opt/FRC3786/bin/bno"
 
+
+sudo systemctl enable bno-to-nettables

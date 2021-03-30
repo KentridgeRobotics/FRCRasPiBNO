@@ -4,6 +4,7 @@ INSTALL_DIR=${1:-""}
 
 echo "Stopping systemd service..."
 sudo systemctl stop bno-to-nettables
+sudo systemctl disable bno-to-nettables
 
 echo "Removing systemd service from $INSTALL_DIR/lib/systemd/system"
 rm "$INSTALL_DIR/lib/systemd/system/bno-to-nettables.service"
