@@ -1,0 +1,11 @@
+[Unit]
+Description=Reader for BNO055 that writes to NetworkTables
+After=multi-user.target
+
+[Service]
+type=simple
+ExecStart=/opt/FRC3786/bin/bno_tables.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

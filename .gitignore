@@ -1,0 +1,6 @@
+.bno-tables-env/
+__pycache__/
+
+build/
+
+*.swp
