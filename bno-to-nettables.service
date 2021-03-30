@@ -4,9 +4,7 @@ After=multi-user.target
 
 [Service]
 type=simple
-ExecStartPre=source /opt/FRC3786/bin/bno/.bno-tables-env/bin/activate
-ExecStart=/opt/FRC3786/bin/bno/bno_tables.py
-ExecStartPost=deactivate
+ExecStart=bash -c 'source /opt/FRC3786/bin/bno/.bno-tables-env/bin/activate && /opt/FRC3786/bin/bno/bno_tables.py'
 Restart=on-failure
 
 [Install]

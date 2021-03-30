@@ -12,7 +12,7 @@ import yaml
 
 from networktables import NetworkTables
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 def set_calibration_data(calibration_file, bno):
     calibration_data = {}
@@ -106,6 +106,11 @@ def main(calibration, net_tables_server):
     """
     logging.info("Starting network tables...")
     NetworkTables.initialize(server=net_tables_server)
+
+    while not NetworkTables.isConnected():
+        logging.info("Waiting for Network Tables to connect...")
+        sleep(1)
+
     bno_table = NetworkTables.getTable("BNO055")
     logging.info("Connecting to BNO...")
     i2c = busio.I2C(board.SCL, board.SDA)
