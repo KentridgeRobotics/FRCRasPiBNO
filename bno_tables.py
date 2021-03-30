@@ -23,40 +23,47 @@ def write_bno_to_network_table(table, bno):
     # Skip temperature for now
 
     # Put acceleration
-    table.putNumber("accel_x", acceleration[0]) if acceleration[0]
-    table.putNumber("accel_y", acceleration[1]) if acceleration[0]
-    table.putNumber("accel_z", acceleration[2]) if acceleration[0]
+    if acceleration and None not in acceleration:
+        table.putNumber("accel_x", acceleration[0])
+        table.putNumber("accel_y", acceleration[1])
+        table.putNumber("accel_z", acceleration[2])
 
     # Put magnetic
-    table.putNumber("mag_x", magnetic[0]) if magnetic[0]
-    table.putNumber("mag_y", magnetic[1]) if magnetic[0]
-    table.putNumber("mag_z", magnetic[2]) if magnetic[0]
+    if magnetic and None not in magnetic:
+        table.putNumber("mag_x", magnetic[0])
+        table.putNumber("mag_y", magnetic[1])
+        table.putNumber("mag_z", magnetic[2])
 
     # Put gyro
-    table.putNumber("gyro_x", gyro[0]) if gyro[0]
-    table.putNumber("gyro_y", gyro[1]) if gyro[0]
-    table.putNumber("gyro_z", gyro[2]) if gyro[0]
+    if gyro and None not in gyro:
+        table.putNumber("gyro_x", gyro[0])
+        table.putNumber("gyro_y", gyro[1])
+        table.putNumber("gyro_z", gyro[2])
 
     # Put euler
-    table.putNumber("euler_roll", euler[0]) if euler[0]
-    table.putNumber("euler_pitch", euler[1]) if euler[0]
-    table.putNumber("euler_yaw", euler[2]) if euler[0]
+    if euler and None not in euler:
+        table.putNumber("euler_roll", euler[0])
+        table.putNumber("euler_pitch", euler[1])
+        table.putNumber("euler_yaw", euler[2])
 
     # Put quaternion
-    table.putNumber("quat_x", quaternion[0]) if quaternion[0]
-    table.putNumber("quat_y", quaternion[1]) if quaternion[0]
-    table.putNumber("quat_z", quaternion[2]) if quaternion[0]
-    table.putNumber("quat_w", quaternion[3]) if quaternion[0]
+    if quaternion and None not in quaternion:
+        table.putNumber("quat_x", quaternion[0])
+        table.putNumber("quat_y", quaternion[1])
+        table.putNumber("quat_z", quaternion[2])
+        table.putNumber("quat_w", quaternion[3])
 
     # Put linear acceleration
-    table.putNumber("lin_accel_x", linear_acceleration[0]) if linear_acceleration[0]
-    table.putNumber("lin_accel_y", linear_acceleration[1]) if linear_acceleration[0]
-    table.putNumber("lin_accel_z", linear_acceleration[2]) if linear_acceleration[0]
+    if linear_acceleration and None not in linear_acceleration:
+        table.putNumber("lin_accel_x", linear_acceleration[0])
+        table.putNumber("lin_accel_y", linear_acceleration[1])
+        table.putNumber("lin_accel_z", linear_acceleration[2])
 
     # Put gravity
-    table.putNumber("gravity_x", gravity[0]) if gravity[0]
-    table.putNumber("gravity_y", gravity[1]) if gravity[0]
-    table.putNumber("gravity_z", gravity[2]) if gravity[0]
+    if gravity and None not in gravity:
+        table.putNumber("gravity_x", gravity[0])
+        table.putNumber("gravity_y", gravity[1])
+        table.putNumber("gravity_z", gravity[2])
 
 def main():
     logging.info("Starting network tables...")
