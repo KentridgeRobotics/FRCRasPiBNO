@@ -30,7 +30,7 @@ def output_calibration_data(output_file, bno):
 
     output_data = {
         'accelerometer_offsets': bno.offsets_accelerometer,
-        'gryoscope_offsets': bno.offsets_gryoscope,
+        'gryoscope_offsets': bno.offsets_gyroscope,
         'magnetometer_offsets': bno.offsets_magnetometer,
         'accelerometer_radius': bno.radius_accelerometer,
         'magnetometer_radius': bno.radius_magnetometer
