@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 
 def print_status(bno):
     sys_status, g_status, a_status, m_status = bno.calibration_status
-    logging.info("Status (3 == complete):\n\tSys: {}\n\tG: {}\n\tA: {}\n\tG: {}".format(sys_status,
+    logging.info("Status (3 == complete):\n\tSys: {}\n\tG: {}\n\tA: {}\n\tM: {}".format(sys_status,
                                                                                         g_status,
                                                                                         a_status,
                                                                                         m_status))
