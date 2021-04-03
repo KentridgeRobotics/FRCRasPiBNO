@@ -76,9 +76,9 @@ def write_bno_to_network_table(table, bno):
 
     # Put euler
     if euler and None not in euler:
-        table.putNumber("euler_roll", euler[0])
-        table.putNumber("euler_pitch", euler[1])
-        table.putNumber("euler_yaw", euler[2])
+        table.putNumber("euler_yaw", euler[0])
+        table.putNumber("euler_roll", euler[1])
+        table.putNumber("euler_pitch", euler[2])
 
     # Put quaternion
     if quaternion and None not in quaternion:
